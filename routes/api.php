@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\MusicaController;
@@ -16,18 +15,29 @@ Route::prefix('musicas') -> group(function(){
     Route::post('/', [MusicaController::class, 'index']);
     });
 
+
+
+//------Prática de Exercícios-------\\
+
+
+
+    //Exercício 6 (Grupo de Rotas)
+
+    Route::prefix('playlists') -> group(function(){
     //Exercício 2
 
     //Dispara o GET da /api/playlist
-    Route::get('/playlist', [PlaylistController::class, 'index']);
+    Route::get('/', [PlaylistController::class, 'index']);
 
 
     //Exercício 4
 
     //Dispara o POST da /api/playlist
-    Route::post('/playlist', [PlaylistController::class, 'store']);
+    Route::post('/', [PlaylistController::class, 'store']);
 
     //Exercício 5
 
     //Dispara DELETE removendo o JSON
-    Route::delete('/playlist{id}', [PlaylistController::class, 'destroy']);
+    Route::delete('/{id}', [PlaylistController::class, 'destroy']);
+
+});
