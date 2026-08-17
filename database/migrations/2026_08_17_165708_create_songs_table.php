@@ -11,17 +11,28 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('artisan', function (Blueprint $table) {
+        Schema::create('songs', function (Blueprint $table) {
             $table->id();
+
+            //Tabela Sing
+            $table->string('title');
+
+            //Tabela duração_sgundos
+            $table->integer('duration_seconds');
+
+            //Tabela explicíto
+            $table->boolean('is_explicit')->default(false);
+
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('artisan');
+        Schema::dropIfExists('songs');
     }
 };
