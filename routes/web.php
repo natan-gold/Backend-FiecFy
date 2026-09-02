@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtisaController;
 use App\Http\Controllers\MusicaController;
+use App\Http\Controllers\AlbumController;
 
 Route::get('/', function () {  /* A rota é o '/' (que entra na página do Larave) na qual puxa a função sem nome */
     return view('welcome');
@@ -154,9 +155,5 @@ Route::get("/ex5", function(){
     }
     return aumentarOuvintes("um milhão");
 });
-
-//Artista
-Route::get("/artista", [ArtisaController::class, "index"]);
-Route::get("/artista/{id}", [ArtisaController::class, "index"]);
 
 

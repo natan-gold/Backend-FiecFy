@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('songs', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignId('album_id')->constrained()->cascadeOnDelete();
+
             //Tabela Sing
             $table->string('title');
 
@@ -21,9 +23,11 @@ return new class extends Migration
             $table->integer('duration_seconds');
 
             //Tabela explicíto
-            $table->boolean('is_explicit')->default(false);
+            $table->boolean('is_explicit')->default(false); //Flag do conteúdo exolicíto
 
-            $table->timestamps();
+            $table->integer('track_never')->default(1); //Faixa 1, 2 ,3..
+
+            $table->string('audio_path')-> nullable();
         });
     }
 

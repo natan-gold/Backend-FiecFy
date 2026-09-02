@@ -27,6 +27,7 @@ class PlaylistController extends Controller
         ], 201);
      }
     
+
     //Exercício 5 (Método Delete)
      public function destroy(int $id) {
 
